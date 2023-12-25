@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/addFragment">
+
+    <fragment
+        android:id="@+id/showListFragment"
+        android:name="com.example.navigationapp.ShowListFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_show_list" >
+
+        <argument
+            android:name="name"
+            app:argType="string"
+            android:defaultValue="-"
+            />
+        <argument
+            android:name="count"
+            app:argType="integer"
+            android:defaultValue="0"
+            />
+        <argument
+            android:name="description"
+            app:argType="string"
+            android:defaultValue="-"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/addFragment"
+        android:name="com.example.navigationapp.addItem.AddFragment"
+        android:label="fragment_add">
+        <action
+            android:id="@+id/action_add_to_show_list"
+            app:destination="@+id/showListFragment"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/descriptionFragment"
+        android:name="com.example.navigationapp.DescriptionFragment"
+        android:label="fragment_description"
+        tools:layout="@layout/fragment_description" >
+
+        <argument
+            android:name="description"
+            app:argType="string"
+            android:defaultValue="-"
+            />
+
+    </fragment>
+</navigation>

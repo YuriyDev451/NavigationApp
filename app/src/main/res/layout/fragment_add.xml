@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.example.navigationapp.addItem.AddFragmentViewModel" />
+    </data>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BFD9C0"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".addItem.AddFragment">
+
+    <LinearLayout
+        android:id="@+id/linear_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+
+        <EditText
+            android:id="@+id/edit_name"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.name}"/>
+
+        <EditText
+            android:id="@+id/edit_count"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.count}"/>
+
+        <EditText
+            android:id="@+id/edit_description"
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@={viewModel.description}"/>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/add_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Add item"
+        android:layout_below="@+id/linear_layout"
+        android:layout_centerHorizontal="true"
+        app:icon="@drawable/add_image"
+        style="?attr/materialButtonOutlinedStyle"
+        />
+</RelativeLayout>
+</layout>
