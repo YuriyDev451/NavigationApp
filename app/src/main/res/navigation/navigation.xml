@@ -11,21 +11,10 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_show_list" >
 
+
         <argument
-            android:name="name"
-            app:argType="string"
-            android:defaultValue="-"
-            />
-        <argument
-            android:name="count"
-            app:argType="integer"
-            android:defaultValue="0"
-            />
-        <argument
-            android:name="description"
-            app:argType="string"
-            android:defaultValue="-"
-            />
+            android:name="colors"
+            app:argType="com.example.navigationapp.model.Colors" />
     </fragment>
     <fragment
         android:id="@+id/addFragment"

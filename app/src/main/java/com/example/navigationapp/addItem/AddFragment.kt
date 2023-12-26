@@ -21,8 +21,11 @@ class AddFragment : Fragment() {
 
 
     fun openShowListFragment(){
-        //val action = AddFragmentDirections.actionAddToShowList()
-        //findNavController().navigate(action)
+        val data = Colors(viewModel.name.value.toString(), viewModel.count.value.toString(), viewModel.description.value.toString())
+        viewModel.dataForShowListFragment.value = data
+
+        val action = AddFragmentDirections.actionAddToShowList(data)
+        findNavController().navigate(action)
     }
 
     lateinit var binding: FragmentAddBinding
@@ -40,8 +43,19 @@ class AddFragment : Fragment() {
             openShowListFragment()
         }
         return binding.root
+
     }
 
+
+
+
+
+
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+    }
 
 
 
