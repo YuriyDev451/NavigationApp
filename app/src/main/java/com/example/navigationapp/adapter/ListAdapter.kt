@@ -1,6 +1,5 @@
 package com.example.navigationapp.adapter
 import android.content.Context
-import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,11 +12,8 @@ import com.example.navigationapp.model.Colors
 class ListAdapter(val context: Context, private var productList: MutableList<Colors>, var onClick: (Colors) -> Unit) : BaseAdapter(){
 
 
-
-
-
-        fun addNewItem(aProduct: Colors) {
-            productList.add(aProduct)
+        fun addNewItem(newData: Colors) {
+            productList.add(newData)
             notifyDataSetChanged()
         }
         override fun getCount(): Int {
@@ -64,13 +60,13 @@ class ListAdapter(val context: Context, private var productList: MutableList<Col
         }
 
         private class ViewHolder(var binding: ListItemBinding, var onClick: (Colors) -> Unit) {
-            fun bind(product: Colors){
+            fun bind(color: Colors){
 
-                binding.textView.text = product.name
-                binding.textView2.text = product.count
+                binding.textView.text = color.name
+                binding.textView2.text = color.count
 
 
-                binding.product = product
+                binding.product = color
 
                 binding.root.setOnClickListener {
                     onClick(binding.product as Colors)

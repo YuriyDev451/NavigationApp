@@ -23,7 +23,8 @@ class ShowListFragment : Fragment() {
 
     lateinit var viewModel: ShowListViewModel
 
-    lateinit var adapter : ListAdapter
+    private lateinit var listAdapter : ListAdapter
+    val args: ShowListFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,21 +36,22 @@ class ShowListFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
 
-        val args: ShowListFragmentArgs by navArgs()
 
-        val receivedData = args.colors
-        viewModel.receivedData.value = receivedData
 
-        adapter = ListAdapter (requireContext(), mutableListOf(), onClick = {
-            println("Clicked:  Name = ${it.name}, Code = ${it.count}, Description = ${it.description}")
-//            viewModel.receivedData.observe(viewLifecycleOwner){
-//
-//            }
+
+
+
+        //viewModel.receivedData.value = receivedData
+        listAdapter = ListAdapter (requireContext(), mutableListOf(), onClick = {
+            //println("Clicked:  Name = ${it.name}, Code = ${it.count}, Description = ${it.description}")
+//            viewModel.receivedData.observe(viewLifecycleOwner){}
+
 
         })
+        binding.productListView.adapter = listAdapter
+        val receivedData = args.colors
 
-        binding.productListView.adapter = adapter
-
+        listAdapter.addNewItem(receivedData)
 
         return binding.root
 
