@@ -7,15 +7,19 @@
 
     <fragment
         android:id="@+id/showListFragment"
-        android:name="com.example.navigationapp.ShowListFragment"
+        android:name="com.example.navigationapp.showList.ShowListFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_show_list" >
-
-
+        <action
+            android:id="@+id/action_show_to_description"
+            app:destination="@id/descriptionFragment"
+            />
         <argument
             android:name="colors"
             app:argType="com.example.navigationapp.model.Colors" />
     </fragment>
+
+
     <fragment
         android:id="@+id/addFragment"
         android:name="com.example.navigationapp.addItem.AddFragment"
@@ -28,7 +32,7 @@
 
     <fragment
         android:id="@+id/descriptionFragment"
-        android:name="com.example.navigationapp.DescriptionFragment"
+        android:name="com.example.navigationapp.showDescription.DescriptionFragment"
         android:label="fragment_description"
         tools:layout="@layout/fragment_description" >
 

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.navigationapp.databinding.FragmentAddBinding
@@ -17,8 +18,6 @@ class AddFragment : Fragment() {
 
 
     lateinit var viewModel: AddFragmentViewModel
-
-
 
     fun openShowListFragment(){
         val data = Colors(viewModel.name.value.toString(), viewModel.count.value.toString(), viewModel.description.value.toString())
@@ -40,6 +39,11 @@ class AddFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         binding.viewModel = viewModel
         binding.addButton.setOnClickListener{
+//            viewModel.errorDescription.observe(viewLifecycleOwner){
+//                if (it.isNullOrEmpty()){
+//                    Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+//                }
+//            }
             openShowListFragment()
         }
         return binding.root
@@ -55,9 +59,30 @@ class AddFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        //observerAll()
     }
 
 
+    override fun onResume() {
+        super.onResume()
+        //observerAll()
+    }
+
+    fun observerAll(){
+//        viewModel.newProductCallBack.observe(this){
+//            val intent = Intent()
+//            var product = Product(viewModel.id.value.orEmpty().toInt(), viewModel.name.value.orEmpty(), viewModel.description.value.orEmpty())
+//            intent.putExtra("product", product)
+//
+//            setResult(RESULT_OK, intent)
+//            finish()
+//        }
+        viewModel.errorDescription.observe(viewLifecycleOwner){
+            if (it.isNullOrEmpty()){
+                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
 
 
 }

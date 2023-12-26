@@ -5,12 +5,12 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.navigationapp.ShowListViewModel" />
+            type="com.example.navigationapp.showList.ShowListViewModel" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ShowListFragment">
+        tools:context=".showList.ShowListFragment">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout

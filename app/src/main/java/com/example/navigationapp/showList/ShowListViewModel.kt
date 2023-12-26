@@ -1,4 +1,4 @@
-package com.example.navigationapp
+package com.example.navigationapp.showList
 
 import android.view.View
 import androidx.lifecycle.MutableLiveData

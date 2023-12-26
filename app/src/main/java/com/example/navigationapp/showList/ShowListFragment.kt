@@ -1,4 +1,4 @@
-package com.example.navigationapp
+package com.example.navigationapp.showList
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -37,16 +37,9 @@ class ShowListFragment : Fragment() {
         binding.viewModel = viewModel
 
 
-
-
-
-
-        //viewModel.receivedData.value = receivedData
         listAdapter = ListAdapter (requireContext(), mutableListOf(), onClick = {
-            //println("Clicked:  Name = ${it.name}, Code = ${it.count}, Description = ${it.description}")
-//            viewModel.receivedData.observe(viewLifecycleOwner){}
-
-
+            val action = ShowListFragmentDirections.actionShowToDescription(it.description)
+            findNavController().navigate(action)
         })
         binding.productListView.adapter = listAdapter
         val receivedData = args.colors
@@ -57,6 +50,10 @@ class ShowListFragment : Fragment() {
 
 
     }
+
+
+
+
 
   /*  fun receiveData (){
         val args: ShowListFragmentArgs by navArgs()

@@ -16,11 +16,11 @@ class AddFragmentViewModel: ViewModel() {
     val description = MutableLiveData<String>()
 
 
-  //  var errorDescription = MutableLiveData<String>()
+    var errorDescription = MutableLiveData<String>()
 
-  //  var newProductCallBack = MutableLiveData<Boolean>()
+    var newProductCallBack = MutableLiveData<Boolean>()
 
-   /* fun addNewProductInserted(){
+    fun addNewProductInserted(){
         if (count.value.isNullOrEmpty()
             || name.value.isNullOrEmpty()
             || description.value.isNullOrEmpty()){
@@ -28,15 +28,15 @@ class AddFragmentViewModel: ViewModel() {
             return
         }
         newProductCallBack.postValue(true)
-    }*/
+    }
 
-  /*  private fun parseEditText(){
+    private fun parseEditText(){
         if (count.value.isNullOrEmpty()
             || name.value.isNullOrEmpty()
             || description.value.isNullOrEmpty()){
             errorDescription.postValue("Zapolnite polya")
             return
         }
-    }*/
+    }
 
 }
