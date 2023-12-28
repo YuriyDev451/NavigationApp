@@ -3,9 +3,14 @@ package com.example.navigationapp.addItem
 import android.graphics.Color
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import com.example.navigationapp.data.Repository
 import com.example.navigationapp.model.Colors
+import kotlinx.coroutines.launch
 
 class AddFragmentViewModel: ViewModel() {
+
+    lateinit var repo: Repository
 
     val dataForShowListFragment = MutableLiveData<Colors>()
 
@@ -37,6 +42,13 @@ class AddFragmentViewModel: ViewModel() {
             errorDescription.postValue("Zapolnite polya")
             return
         }
+    }
+
+    fun insert (product: Colors) {
+        viewModelScope.launch {
+            repo.insert(product)
+        }
+
     }
 
 }
