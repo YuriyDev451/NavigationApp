@@ -12,10 +12,18 @@ import com.example.navigationapp.model.Colors
 class ListAdapter(val context: Context, private var productList: MutableList<Colors>, var onClick: (Colors) -> Unit) : BaseAdapter(){
 
 
-        fun addNewItem(newData: Colors) {
-            productList.add(newData)
-            notifyDataSetChanged()
-        }
+//        fun addNewItem(newData: Colors) {
+//            productList.clear()
+//            productList.add(newData)
+//            notifyDataSetChanged()
+//        }
+
+    fun addNewItem(newProductList: List<Colors>) {
+        // Mevcut ürün listesini temizle ve yeni ürünleri ekleyerek güncelle
+        productList.clear()
+        productList.addAll(newProductList)
+        notifyDataSetChanged()
+    }
         override fun getCount(): Int {
             return productList.count()
         }
