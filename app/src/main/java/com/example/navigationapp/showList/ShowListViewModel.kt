@@ -7,11 +7,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.navigationapp.data.Repository
 import com.example.navigationapp.model.Colors
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ShowListViewModel: ViewModel() {
+@HiltViewModel
+class ShowListViewModel @Inject constructor(var repository: Repository): ViewModel() {
 
-    lateinit var repository: Repository
+
 
     val receivedData = MutableLiveData<Colors>()
 

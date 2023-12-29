@@ -1,6 +1,7 @@
 package com.example.navigationapp.showDescription
 
 import androidx.lifecycle.ViewModel
+import javax.inject.Inject
 
-class DescriptionFragmentViewModel: ViewModel() {
+class DescriptionFragmentViewModel @Inject constructor(): ViewModel() {
 }

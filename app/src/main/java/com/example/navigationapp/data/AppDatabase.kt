@@ -8,7 +8,7 @@ import com.example.navigationapp.model.Colors
 
 @Database(entities = [Colors::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {
-    abstract fun productDao(): ColorsDao
+    abstract fun colorsDao(): ColorsDao
 
 
     companion object {

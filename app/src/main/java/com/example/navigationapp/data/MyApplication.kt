@@ -1,10 +1,12 @@
 package com.example.navigationapp.data
 
 import android.app.Application
+import dagger.hilt.android.HiltAndroidApp
 
+
+@HiltAndroidApp
 class MyApplication: Application() {
-    val database by lazy { AppDatabase.getDatabase(this) }
-    val repository by lazy { Repository(database.productDao()) }
+
 
     override fun onCreate() {
         super.onCreate()

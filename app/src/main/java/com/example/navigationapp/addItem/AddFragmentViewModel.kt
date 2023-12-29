@@ -6,11 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.navigationapp.data.Repository
 import com.example.navigationapp.model.Colors
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class AddFragmentViewModel: ViewModel() {
+@HiltViewModel
+class AddFragmentViewModel @Inject constructor( var repo: Repository): ViewModel() {
 
-    lateinit var repo: Repository
+
 
     val dataForShowListFragment = MutableLiveData<Colors>()
 
