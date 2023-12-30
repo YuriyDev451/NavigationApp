@@ -41,68 +41,29 @@ class AddFragment : Fragment() {
 
 
         binding.addButton.setOnClickListener{
+            if (viewModel.parseEditText()){
+                val product = Colors(0,
+                    viewModel.name.value.orEmpty(),
+                    viewModel.count.value.orEmpty(),
+                    viewModel.description.value.orEmpty()
+                )
 
-            openShowListFragment()
-        }
+                viewModel.insert(product)
+                val action = AddFragmentDirections.actionAddToShowList(product)
+                findNavController().navigate(action)
+            }else{
+                Toast.makeText(context, "zapolnite polya", Toast.LENGTH_SHORT).show()
+            }
+
+
+       }
         return binding.root
 
     }
 
 
     fun openShowListFragment(){
-//        val data = Colors(0,viewModel.name.value.toString(), viewModel.count.value.toString(), viewModel.description.value.toString())
-//        viewModel.dataForShowListFragment.value = data
 
-        val product = Colors(0,
-            viewModel.name.value.orEmpty(),
-            viewModel.count.value.orEmpty(),
-            viewModel.description.value.orEmpty()
-        )
-
-        viewModel.insert(product)
-
-        val action = AddFragmentDirections.actionAddToShowList(product)
-        findNavController().navigate(action)
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        //observerAll()
-    }
-
-
-    override fun onResume() {
-        super.onResume()
-        //observerAll()
-    }
-
-    fun observerAll(){
-//        viewModel.newProductCallBack.observe(this){
-//            val intent = Intent()
-//            var product = Product(viewModel.id.value.orEmpty().toInt(), viewModel.name.value.orEmpty(), viewModel.description.value.orEmpty())
-//            intent.putExtra("product", product)
-//
-//            setResult(RESULT_OK, intent)
-//            finish()
-//        }
-        viewModel.errorDescription.observe(viewLifecycleOwner){
-            if (it.isNullOrEmpty()){
-                Toast.makeText(requireContext(), it, Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
-
 
 }

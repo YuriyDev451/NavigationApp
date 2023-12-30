@@ -24,27 +24,13 @@ class AddFragmentViewModel @Inject constructor( var repo: Repository): ViewModel
     val description = MutableLiveData<String>()
 
 
-    var errorDescription = MutableLiveData<String>()
 
-    var newProductCallBack = MutableLiveData<Boolean>()
 
-    fun addNewProductInserted(){
-        if (count.value.isNullOrEmpty()
-            || name.value.isNullOrEmpty()
-            || description.value.isNullOrEmpty()){
-            errorDescription.postValue("Zapolnite polya")
-            return
-        }
-        newProductCallBack.postValue(true)
-    }
-
-    private fun parseEditText(){
-        if (count.value.isNullOrEmpty()
-            || name.value.isNullOrEmpty()
-            || description.value.isNullOrEmpty()){
-            errorDescription.postValue("Zapolnite polya")
-            return
-        }
+     fun parseEditText(): Boolean{
+         val name = name.value.orEmpty()
+         val count = count.value.orEmpty()
+         val description = description.value.orEmpty()
+         return name.isNotEmpty() && count.isNotEmpty() && description.isNotEmpty()
     }
 
     fun insert (product: Colors) {
